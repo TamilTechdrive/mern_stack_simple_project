@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Postuser = () => {
   const Navigate = useNavigate();
+  const Backend_URI = process.env.REACT_APP_BACKEND_URI
   const [userdata, setuserdata] = useState({
     name: "",
     email: "",
@@ -23,7 +24,7 @@ const Postuser = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/user/", {
+      const response = await fetch(`${Backend_URI}/api/user/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

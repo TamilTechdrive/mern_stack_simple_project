@@ -8,10 +8,11 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const [userdata, setuserdata] = useState([]);
   const Navigate = useNavigate();
+  const Backend_URI = process.env.REACT_APP_BACKEND_URI
 
   const fetchusers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/user/");
+      const response = await fetch(`${Backend_URI}/api/user/`);
       const data = await response.json();
       setuserdata(data);
     } catch (error) {
@@ -21,7 +22,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchusers();
-  }, []);
+  });
 
   const handleUpdate = (user_Id) => {
     Navigate(`/user/${user_Id}`);
@@ -30,7 +31,7 @@ const Dashboard = () => {
   const handleDelete = async (user_Id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/${user_Id}`,
+        `${Backend_URI}/api/user/${user_Id}`,
         {
           method: "DELETE",
         }

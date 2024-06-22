@@ -5,6 +5,7 @@ import { Button, Form } from "react-bootstrap";
 import "./updateuser.css";
 const Updateuser = () => {
   const { id } = useParams();
+  const Backend_URI = process.env.REACT_APP_BACKEND_URI
   const Navigate = useNavigate();
   const [userdata, setuserdata] = useState({
     name: "",
@@ -15,7 +16,7 @@ const Updateuser = () => {
   useEffect(() => {
     const fetchuser = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/user/${id}`);
+        const response = await fetch(`${Backend_URI}/api/user/${id}`);
         const data = await response.json();
         setuserdata(data);
       } catch (error) {
@@ -23,7 +24,7 @@ const Updateuser = () => {
       }
     };
     fetchuser();
-  }, [id]);
+  },[Backend_URI,id]);
 
   const handleinputchange = (event) => {
     const { name, value } = event.target;
@@ -36,7 +37,7 @@ const Updateuser = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${id}`, {
+      const response = await fetch(`${Backend_URI}/api/user/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
