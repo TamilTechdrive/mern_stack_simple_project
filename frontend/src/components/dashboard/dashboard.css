@@ -1,0 +1,25 @@
+.dashboard-container {
+  display: block;
+  margin-inline: 10rem;
+  overflow: auto;
+  margin-top: 1rem;
+  border: solid 2px rgb(117, 117, 117);
+  padding: 5px;
+  box-shadow: 2px 2px 2px #fff;
+}
+.header-name {
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .dashboard-container {
+    margin-inline: 5px;
+  }
+}
+.table-data{
+  display: flex;
+  justify-content: space-evenly;
+}
+.dashboard-container th{
+  text-align: center;
+}

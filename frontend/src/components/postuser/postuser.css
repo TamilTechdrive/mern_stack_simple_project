@@ -1,0 +1,29 @@
+.center-form{
+    display: block;
+    border: solid 2px #585757;
+    padding: 25px;
+    margin-top: 25px;
+    max-width: fit-content;
+    margin-inline: auto;
+    border-radius: 5px;
+    box-shadow: 6px 6px 10px #d8d8d8;
+}
+.center-form h1{
+    text-align: center;
+}
+
+Form .user-btn{
+    display: block;
+    margin-inline: auto;
+    max-width: fit-content;
+    background-color: rgb(51, 51, 51);
+    border: solid 2px rgb(86, 85, 85);
+}
+Form .user-btn:hover{
+    background-color:#d8d8d8;
+    color: #585757;
+    border-color: #03b869;
+}
+.center-form:hover{
+    border: solid 2px #03b869;
+}
